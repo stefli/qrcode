@@ -41,4 +41,12 @@ public class QRCodeKitTest {
 		assertEquals(data, result);
 	}
 
+	@Test
+	public void testBase64Encode() {
+		String data = "http://www.stefli.com";
+		BufferedImage image = QRCodeKit.createQRCode(data);
+		String result = QRCodeKit.getImageBase64String(image);
+		System.out.println(result);
+	}
+
 }

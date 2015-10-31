@@ -6,14 +6,19 @@ package com.stefli.qrcode;
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+
+import org.apache.commons.codec.binary.Base64OutputStream;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
@@ -212,6 +217,28 @@ public class QRCodeKit {
 		Result result = new MultiFormatReader().decode(binaryBitmap, hint);
 
 		return result.getText();
+	}
+
+	/**
+	 * Return base64 for image
+	 *
+	 * @author stefli
+	 * @param image
+	 * @return
+	 */
+	public static String getImageBase64String(BufferedImage image) {
+		String result = null;
+		try {
+			ByteArrayOutputStream os = new ByteArrayOutputStream();
+			OutputStream b64 = new Base64OutputStream(os);
+			ImageIO.write(image, "png", b64);
+			result = os.toString("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		}
+		return result;
 	}
 
 }
