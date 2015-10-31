@@ -52,7 +52,7 @@ public class QRCodeKit {
 	 * @return
 	 */
 	public static BufferedImage createQRCode(String data) {
-		return createQRCode(data, 320, 320);
+		return createQRCode(data, QRCODE_DEFAULT_WIDTH, QRCODE_DEFAULT_HEIGHT);
 	}
 
 	/**
