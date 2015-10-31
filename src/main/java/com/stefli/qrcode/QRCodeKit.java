@@ -1,17 +1,7 @@
 /**
- * Copyright (c) 2015, Powered by stefli, Ltd. All Rights Reserved. 
+ * Copyright (c) 2015, Powered by stefli. All Rights Reserved. 
  */
 package com.stefli.qrcode;
-
-/**
- * @author stefli
- * @version 1.0
- * @date 2015年10月31日 下午1:04:25
- *
- */
-/**
- * Copyright (c) 2015, Beijing Duola Technology Co., Ltd. All Rights Reserved. 
- */
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
@@ -48,11 +38,11 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
  */
 public class QRCodeKit {
 
-	private static final String QRCODE_DEFAULT_CHARSET = "UTF-8";
+	public static final String QRCODE_DEFAULT_CHARSET = "UTF-8";
 
-	private static final int QRCODE_DEFAULT_HEIGHT = 320;
+	public static final int QRCODE_DEFAULT_HEIGHT = 320;
 
-	private static final int QRCODE_DEFAULT_WIDTH = 320;
+	public static final int QRCODE_DEFAULT_WIDTH = 320;
 
 	/**
 	 * Create qrcode with default settings
@@ -60,8 +50,6 @@ public class QRCodeKit {
 	 * @author stefli
 	 * @param data
 	 * @return
-	 * @throws WriterException
-	 * @throws IOException
 	 */
 	public static BufferedImage createQRCode(String data) {
 		return createQRCode(data, 320, 320);
@@ -75,8 +63,6 @@ public class QRCodeKit {
 	 * @param width
 	 * @param height
 	 * @return
-	 * @throws WriterException
-	 * @throws IOException
 	 */
 	public static BufferedImage createQRCode(String data, int width, int height) {
 		return createQRCode(data, QRCODE_DEFAULT_CHARSET, width, height);
@@ -91,8 +77,6 @@ public class QRCodeKit {
 	 * @param width
 	 * @param height
 	 * @return
-	 * @throws WriterException
-	 * @throws IOException
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static BufferedImage createQRCode(String data, String charset, int width, int height) {
@@ -114,8 +98,6 @@ public class QRCodeKit {
 	 * @param width
 	 * @param height
 	 * @return
-	 * @throws WriterException
-	 * @throws IOException
 	 */
 	public static BufferedImage createQRCode(String data, String charset, Map<EncodeHintType, ?> hint, int width,
 			int height) {
