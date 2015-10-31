@@ -82,7 +82,7 @@ public class QRCodeKit {
 	public static BufferedImage createQRCode(String data, String charset, int width, int height) {
 		Map hint = new HashMap();
 		hint.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-		hint.put(EncodeHintType.MARGIN, 0);
+		hint.put(EncodeHintType.MARGIN, 1);
 		hint.put(EncodeHintType.CHARACTER_SET, charset);
 
 		return createQRCode(data, charset, hint, width, height);
