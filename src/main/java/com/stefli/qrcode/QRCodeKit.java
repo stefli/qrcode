@@ -250,7 +250,7 @@ public class QRCodeKit {
 	 * @param base64ImageString
 	 * @param file
 	 */
-	public static void convertBase64DataToImage(String base64ImageString, File file) {
+	public static void convertBase64StringToImage(String base64ImageString, File file) {
 		FileOutputStream os;
 		try {
 			Base64 d = new Base64();
