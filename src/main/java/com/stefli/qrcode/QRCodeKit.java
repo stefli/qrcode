@@ -247,15 +247,14 @@ public class QRCodeKit {
 	 * Decode the base64Image data to image
 	 *
 	 * @author stefli
-	 * @param base64ImageData
+	 * @param base64ImageString
 	 * @param file
-	 * @throws IOException
 	 */
-	public static void convertBase64DataToImage(String base64ImageData, File file) {
+	public static void convertBase64DataToImage(String base64ImageString, File file) {
 		FileOutputStream os;
 		try {
 			Base64 d = new Base64();
-			byte[] bs = d.decode(base64ImageData);
+			byte[] bs = d.decode(base64ImageString);
 			os = new FileOutputStream(file.getAbsolutePath());
 			os.write(bs);
 			os.close();
