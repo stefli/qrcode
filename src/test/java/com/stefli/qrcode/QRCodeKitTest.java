@@ -42,11 +42,12 @@ public class QRCodeKitTest {
 	}
 
 	@Test
-	public void testBase64Encode() {
+	public void testBase64Encode() throws IOException {
 		String data = "http://www.stefli.com";
 		BufferedImage image = QRCodeKit.createQRCode(data);
 		String result = QRCodeKit.getImageBase64String(image);
 		System.out.println(result);
+		QRCodeKit.convertBase64DataToImage(result, new File("decode.png"));
 	}
 
 }

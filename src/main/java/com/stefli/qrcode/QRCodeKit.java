@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -18,6 +19,7 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Base64OutputStream;
 
 import com.google.zxing.BarcodeFormat;
@@ -239,6 +241,31 @@ public class QRCodeKit {
 			throw new RuntimeException(e.getMessage(), e);
 		}
 		return result;
+	}
+
+	/**
+	 * Decode the base64Image data to image
+	 *
+	 * @author stefli
+	 * @param base64ImageData
+	 * @param file
+	 * @throws IOException
+	 */
+	public static void convertBase64DataToImage(String base64ImageData, File file) {
+		FileOutputStream os;
+		try {
+			Base64 d = new Base64();
+			byte[] bs = d.decode(base64ImageData);
+			os = new FileOutputStream(file.getAbsolutePath());
+			os.write(bs);
+			os.close();
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage(), e);
+		}
 	}
 
 }
